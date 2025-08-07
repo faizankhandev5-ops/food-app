@@ -14,12 +14,11 @@ app.use(cors()); // enable CORS for all routes
 app.use(express.json()); // parse JSON request bodies
 app.use(morgan("dev")); // log HTTP requests in dev format
 
-app.use("/api/v1/test", require("./routes/testRoute")); // use testRoute.js file for /api/v1/test route
+app.use("/api/v1/auth", require("./routes/authRoute")); // use authRoute for /api/v1/auth routes
+app.use("/api/v1/user", require("./routes/userRoute")); // use authRoute for /api/v1/auth routes
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`.bgCyan.white); // log message when server is running
 });
 
-app.get("/", (req, res) => {
-  res.json("abc");
-});
